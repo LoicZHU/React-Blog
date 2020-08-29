@@ -6,7 +6,27 @@ import './header.scss';
 
 // == Composant
 const Header = () => (
-  <div>h</div>
+  <header className="header">
+    <nav>
+      <ul className="header__navlist">
+        <li>
+          <a href="">accueil</a>
+        </li>
+        <li>
+          <a href="">angular</a>
+        </li>
+        <li>
+          <a href="">react</a>
+        </li>
+        <li>
+          <a href="">vue</a>
+        </li>
+        <li>
+          <a href="">autre</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 );
 
 // == Export

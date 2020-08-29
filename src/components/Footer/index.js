@@ -6,7 +6,9 @@ import './footer.scss';
 
 // == Composant
 const Footer = () => (
-  <div>f</div>
+  <footer className="footer">
+    <p className="footer__copyright">DevOfThrones, le blog du développeur 2020 &copy;</p>
+  </footer>
 );
 
 // == Export

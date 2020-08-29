@@ -1,0 +1,29 @@
+@import 'src/styles/_vars.scss';
+
+.header {
+  padding: $borderGutter 0;
+  border-bottom: 1px solid $headerBorderColor;
+  
+  &__navlist {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    li {
+      margin-right: 1rem;
+
+      &:last-child {
+        margin-right: inherit;
+      }
+
+      &:hover {
+        color: $headerNavLinkHoverColor;
+      }
+
+      a {
+        color: $headerNavLinkColor;
+        padding: 1rem;
+      }
+    }
+  }
+}

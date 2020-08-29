@@ -1,0 +1,14 @@
+@import 'src/styles/_vars.scss';
+
+.footer {
+  background-color: $footerBackgroundColor;
+  padding: $footerPadding 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  &__copyright {
+    color: $footerTextColor;
+    text-align: center;
+  }
+}
