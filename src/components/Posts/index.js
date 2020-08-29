@@ -1,41 +1,39 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == Import
 import './posts.scss';
+import Post from 'src/components/Posts/Post';
 
 // == Composant
-const Posts = () => (
-  <main className="main">
-    <h1 className="main__title">dev of thrones</h1>
+const Posts = ({ postList }) => {
+  console.log(postList);
 
-    <section className="main__article-section">
-      <article className="main__article-section__article">
-        <h2 className="main__article-section__article__title">titre</h2>
-        <span className="main__article-section__article__category">catégorie</span>
-        <p className="main__article-section__article__content">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel officiis dignissimos unde quas laboriosam et!
-        </p>
-      </article>
+  return (
+    <main className="main">
+      <h1 className="main__title">dev of thrones</h1>
 
-      <article className="main__article-section__article">
-        <h2 className="main__article-section__article__title">titre</h2>
-        <span className="main__article-section__article__category">catégorie</span>
-        <p className="main__article-section__article__content">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel officiis dignissimos unde quas laboriosam et!
-        </p>
-      </article>
+      <section className="main__article-section">
+        {postList.map((post) => (
+          <Post
+            key={post.id}
+            {...post}
+          />
+        ))}
+      </section>
+    </main>
+  );
+};
 
-      <article className="main__article-section__article">
-        <h2 className="main__article-section__article__title">titre</h2>
-        <span className="main__article-section__article__category">catégorie</span>
-        <p className="main__article-section__article__content">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel officiis dignissimos unde quas laboriosam et!
-        </p>
-      </article>
-    </section>
-  </main>
-);
+// props validation
+Posts.propTypes = {
+  postList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 // == Export
 export default Posts;
