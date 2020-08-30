@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import
 import './header.scss';
@@ -26,6 +27,16 @@ const Header = ({ categoryList }) => (
     </nav>
   </header>
 );
+
+// props validation
+Header.propTypes = {
+  categoryList: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      route: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 // == Export
 export default Header;
