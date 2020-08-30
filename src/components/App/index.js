@@ -9,6 +9,7 @@ import './app.scss';
 import Header from 'src/components/Header';
 import Posts from 'src/components/Posts';
 import Footer from 'src/components/Footer';
+import { getPostsByCategory } from 'src/components/utils/selectors';
 
 // == Composant
 const App = () => {
@@ -72,14 +73,14 @@ const App = () => {
         </Route>
 
         {/* all categories page */}
-        {!fetchingCategoryList && (
+        {!fetchingPostList && !fetchingCategoryList && (
           categoryList.map((category) => (
             <Route
               exact
               path={(category.route === '/oclock') ? '/vue' : category.route}
               key={category.label === ('O’clock' || 'O\'clock') ? 'Vue' : category.label}
             >
-              <div>test content</div>
+              <Posts postList={getPostsByCategory(postList, category.label)} />
             </Route>
           ))
         )}
