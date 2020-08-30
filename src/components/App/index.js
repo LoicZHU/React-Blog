@@ -2,6 +2,7 @@
 // == Import npm
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Switch, Route } from 'react-router-dom';
 
 // == Import
 import './app.scss';
@@ -47,7 +48,7 @@ const App = () => {
       url: 'https://oclock-open-apis.now.sh/api/blog/categories',
     })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setCategoryList(response.data);
       })
       .catch((error) => {
@@ -57,11 +58,39 @@ const App = () => {
         setFetchingCategoryList(false);
       });
   };
-console.log(categoryList);
+
   return (
     <div className="app">
+      {/* header */}
       {!fetchingCategoryList && <Header categoryList={categoryList} />}
-      {!fetchingPostList && <Posts postList={postList} />}
+
+      {/* content */}
+      <Switch>
+        {/* home page */}
+        <Route exact path="/">
+          {!fetchingPostList && <Posts postList={postList} />}
+        </Route>
+
+        {/* all categories page */}
+        {!fetchingCategoryList && (
+          categoryList.map((category) => (
+            <Route
+              exact
+              path={(category.route === '/oclock') ? '/vue' : category.route}
+              key={category.label === ('O’clock' || 'O\'clock') ? 'Vue' : category.label}
+            >
+              <div>test content</div>
+            </Route>
+          ))
+        )}
+
+        {/* 404 page */}
+        <Route exact path="*">
+          <div>Erreur 404</div>
+        </Route>
+      </Switch>
+
+      {/* footer */}
       <Footer />
     </div>
   );
