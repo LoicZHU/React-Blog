@@ -1,29 +1,27 @@
 // == Import npm
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 // == Import
 import './header.scss';
 
 // == Composant
-const Header = () => (
+const Header = ({ categoryList }) => (
   <header className="header">
     <nav>
       <ul className="header__navlist">
-        <li>
-          <a href="">accueil</a>
-        </li>
-        <li>
-          <a href="">angular</a>
-        </li>
-        <li>
-          <a href="">react</a>
-        </li>
-        <li>
-          <a href="">vue</a>
-        </li>
-        <li>
-          <a href="">autre</a>
-        </li>
+        {categoryList.map((category) => (
+          <li key={category.label}>
+            <NavLink
+              exact
+              to={(category.route === '/oclock') ? '/vue' : category.route}
+              className="header__navlist__link"
+              activeClassName="header__navlist__link--active"
+            >
+              {category.label === ('O’clock' || 'O\'clock') ? 'Vue' : category.label}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   </header>

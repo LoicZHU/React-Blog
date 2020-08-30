@@ -15,14 +15,13 @@
       &:last-child {
         margin-right: inherit;
       }
+    }
 
-      &:hover {
+    &__link {
+      padding: 1rem;
+
+      &--active {
         color: $headerNavLinkHoverColor;
-      }
-
-      a {
-        color: $headerNavLinkColor;
-        padding: 1rem;
       }
     }
   }

@@ -13,12 +13,15 @@ import Footer from 'src/components/Footer';
 const App = () => {
   // componentDidMount
   useEffect(() => {
-    fetchPosts();
+    fetchPosts(); // fetch posts
+    fetchCategories(); // fetch routes
   }, []);
 
   // state
   const [postList, setPostList] = useState([]);
   const [fetchingPostList, setFetchingPostList] = useState(true);
+  const [categoryList, setCategoryList] = useState([]);
+  const [fetchingCategoryList, setFetchingCategoryList] = useState(true);
 
   // fetch
   const fetchPosts = () => {
@@ -27,7 +30,7 @@ const App = () => {
       url: 'https://oclock-open-apis.now.sh/api/blog/posts',
     })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setPostList(response.data);
       })
       .catch((error) => {
@@ -38,9 +41,26 @@ const App = () => {
       });
   };
 
+  const fetchCategories = () => {
+    axios({
+      method: 'GET',
+      url: 'https://oclock-open-apis.now.sh/api/blog/categories',
+    })
+      .then((response) => {
+        console.log(response.data);
+        setCategoryList(response.data);
+      })
+      .catch((error) => {
+        console.warn(error);
+      })
+      .finally(() => {
+        setFetchingCategoryList(false);
+      });
+  };
+console.log(categoryList);
   return (
     <div className="app">
-      <Header />
+      {!fetchingCategoryList && <Header categoryList={categoryList} />}
       {!fetchingPostList && <Posts postList={postList} />}
       <Footer />
     </div>
