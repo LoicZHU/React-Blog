@@ -8,6 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 import './app.scss';
 import Header from 'src/components/Header';
 import Posts from 'src/components/Posts';
+import Fullpost from 'src/components/Posts/Fullpost';
 import Footer from 'src/components/Footer';
 import { getPostsByCategory } from 'src/components/utils/selectors';
 
@@ -73,8 +74,9 @@ const App = () => {
         </Route>
 
         {/* all categories page */}
-        {!fetchingPostList && !fetchingCategoryList && (
-          categoryList.map((category) => (
+        {!fetchingPostList
+          && !fetchingCategoryList
+          && (categoryList.map((category) => (
             <Route
               exact
               path={(category.route === '/oclock') ? '/vue' : category.route}
@@ -82,8 +84,16 @@ const App = () => {
             >
               <Posts postList={getPostsByCategory(postList, category.label)} />
             </Route>
-          ))
-        )}
+          )))
+          && (postList.map((post) => (
+            <Route
+              exact
+              path={`/${post.slug}`}
+              key={post.id}
+            >
+              <Fullpost title={post.title} category={post.category} content={post.content} />
+            </Route>
+          )))}
 
         {/* 404 page */}
         <Route exact path="*">

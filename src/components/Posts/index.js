@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // == Import
 import './posts.scss';
@@ -13,10 +14,12 @@ const Posts = ({ postList }) => (
 
     <section className="main__article-section">
       {postList.map((post) => (
-        <Post
-          key={post.id}
-          {...post}
-        />
+        <Link
+          exact
+          to={post.slug}
+        >
+          <Post key={post.id} {...post} />
+        </Link>
       ))}
     </section>
   </main>
