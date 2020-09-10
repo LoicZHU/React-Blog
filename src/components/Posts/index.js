@@ -17,6 +17,7 @@ const Posts = ({ postList }) => (
         <Link
           exact
           to={post.slug}
+          key={post.id}
         >
           <Post key={post.id} {...post} />
         </Link>
