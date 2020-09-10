@@ -15,7 +15,6 @@ const Posts = ({ postList }) => (
     <section className="main__article-section">
       {postList.map((post) => (
         <Link
-          exact
           to={post.slug}
           key={post.id}
         >
