@@ -15,7 +15,7 @@ const Posts = ({ postList }) => (
     <section className="main__article-section">
       {postList.map((post) => (
         <Link
-          to={post.slug}
+          to={post.slug === 'oclock-une-vraie-bonne-ecole' ? 'vue-une-vraie-fausse-bonne-idee' : post.slug}
           key={post.id}
         >
           <Post key={post.id} {...post} />
