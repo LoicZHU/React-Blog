@@ -1,6 +1,14 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import DOMPurify from 'dompurify';
+
+// purify HTML
+const createMarkup = (htmlCode) => {
+  return {
+    __html: DOMPurify.sanitize(htmlCode)
+  };
+};
 
 // == Composant
 const Post = ({ title, category, excerpt }) => (
@@ -11,9 +19,9 @@ const Post = ({ title, category, excerpt }) => (
     <span className="main__article-section__article__category">
       {category === ('O’clock' || 'O\'clock') ? 'vue' : category}
     </span>
-    <p className="main__article-section__article__content">
-      {excerpt}
-    </p>
+    <p className="main__article-section__article__content"
+      dangerouslySetInnerHTML={createMarkup(excerpt)}
+    />
   </article>
 );
 
