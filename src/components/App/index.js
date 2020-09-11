@@ -85,6 +85,10 @@ const App = () => {
               <Posts postList={getPostsByCategory(postList, category.label)} />
             </Route>
           )))
+        }
+
+        {/* all fullposts of each category */}
+        {!fetchingPostList
           && (postList.map((post) => (
             <Route
               exact
@@ -93,7 +97,8 @@ const App = () => {
             >
               <Fullpost title={post.title} category={post.category} content={post.content} />
             </Route>
-          )))}
+          )))
+        }
 
         {/* 404 page */}
         <Route exact path="*">
