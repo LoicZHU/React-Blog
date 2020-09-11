@@ -1,0 +1,14 @@
+@import 'src/styles/_vars.scss';
+
+.notfound {
+  margin: $borderGutter 0;
+  text-align: center;
+
+  &__title {
+    font-size: 2em;
+  }
+
+  &__content {
+    margin: 20px 0;
+  }
+}

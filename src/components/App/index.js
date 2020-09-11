@@ -10,6 +10,7 @@ import Header from 'src/components/Header';
 import Posts from 'src/components/Posts';
 import Fullpost from 'src/components/Posts/Fullpost';
 import Footer from 'src/components/Footer';
+import NotFound from 'src/components/NotFound';
 import { getPostsByCategory } from 'src/components/utils/selectors';
 
 // == Composant
@@ -102,7 +103,7 @@ const App = () => {
 
         {/* 404 page */}
         <Route exact path="*">
-          <div>Erreur 404</div>
+          <NotFound />
         </Route>
       </Switch>
 
