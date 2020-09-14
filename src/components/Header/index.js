@@ -14,7 +14,7 @@ const Header = ({ categoryList }) => (
       <Link to="/">Dév web</Link>
     </div>
 
-    <nav class="header__nav">
+    <nav className="header__nav">
       <ul className="header__nav__list">
         {categoryList.map((category) => (
           <li key={category.label}>
