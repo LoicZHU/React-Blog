@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { slide as Menu } from 'react-burger-menu';
 
 // == Import
 import './header.scss';
@@ -9,7 +10,24 @@ import './header.scss';
 // == Composant
 const Header = ({ categoryList }) => (
   <header className="header">
-    <nav>
+    <nav class="header__nav">
+      <ul className="header__nav__list">
+        {categoryList.map((category) => (
+          <li key={category.label}>
+            <NavLink
+              exact
+              to={(category.route === '/oclock') ? '/vue' : category.route}
+              className="header__nav__list__link"
+              activeClassName="header__nav__list__link--active"
+            >
+              {category.label === ('O’clock' || 'O\'clock') ? 'Vue' : category.label}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <Menu right noOverlay width={ '200px' }>
       <ul className="header__navlist">
         {categoryList.map((category) => (
           <li key={category.label}>
@@ -24,7 +42,7 @@ const Header = ({ categoryList }) => (
           </li>
         ))}
       </ul>
-    </nav>
+    </Menu>
   </header>
 );
 

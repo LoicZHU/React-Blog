@@ -59,6 +59,7 @@
     "dompurify": "^2.0.15",
     "prop-types": "*",
     "react": "*",
+    "react-burger-menu": "^2.7.1",
     "react-dom": "*",
     "react-router-dom": "^5.2.0"
   }
