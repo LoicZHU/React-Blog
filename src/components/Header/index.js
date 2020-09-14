@@ -10,7 +10,7 @@ import './header.scss';
 // == Composant
 const Header = ({ categoryList }) => (
   <header className="header">
-    <div class="header__logo">
+    <div className="header__logo">
       <Link to="/">Dév web</Link>
     </div>
 
