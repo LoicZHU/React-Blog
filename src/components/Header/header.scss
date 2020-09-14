@@ -7,6 +7,9 @@
   background-color: white;
   top: 0;
 
+  &__logo {
+    display: none;
+  }
 
   &__nav {
     &__list {
@@ -43,17 +46,48 @@
     background-color: white;
     top: 0;
     padding: 0;
-    padding-bottom: 73px;
+    padding-bottom: 15px;
     border-bottom: 1px solid $headerBorderColor;
+
+    &__logo {
+      display: inline-block;
+      margin: 15px 0 0 25px;
+      padding: 10px;
+      color: dodgerblue;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
 
     &__nav {
       display: none;
+
+      &__list {
+  
+        li {
+          margin-right: 1rem;
+  
+          &:last-child {
+            margin-right: inherit;
+          }
+        }
+  
+        &__link {
+          display: block;
+          margin: 10px;
+          width: 100%;
+  
+          &--active {
+            color: $headerNavLinkHoverColor;
+          }
+        }
+      }
     }
     
     /* burger menu */
 
     /* Position and sizing of burger button */
     .bm-burger-button {
+      display: inline;
       position: fixed;
       width: 36px;
       height: 30px;
@@ -92,25 +126,25 @@
     */
     .bm-menu-wrap {
       position: fixed;
-      height: 10%;
+      height: 100%;
     }
 
     /* General sidebar styles */
     .bm-menu {
       background: whitesmoke;
-      // padding: 2.5em 1.5em 0;
+      padding: 20px 10px 0;
       font-size: 1.15em;
     }
 
     /* Morph shape necessary with bubble or elastic */
-    .bm-morph-shape {
-      fill: #373a47;
-    }
+    // .bm-morph-shape {
+    //   fill: #373a47;
+    // }
 
     /* Wrapper for item list */
     .bm-item-list {
       color: black;
-      padding: 0.8em;
+      margin-top: 50px;
     }
 
     /* Individual item */

@@ -71,7 +71,7 @@ const App = () => {
       <Switch>
         {/* home page */}
         <Route exact path="/">
-          {!fetchingPostList && <Posts postList={postList} categoryLabel={'Développement web'} />}
+          {!fetchingPostList && <Posts postList={postList} categoryLabel={'Articles'} />}
         </Route>
 
         {/* all categories page */}
@@ -84,7 +84,6 @@ const App = () => {
               key={category.label === ('O’clock' || 'O\'clock') ? 'Vue' : category.label}
             >
               <Posts postList={getPostsByCategory(postList, category.label)} categoryLabel={category.label} />
-              {console.log(category)}
             </Route>
           )))
         }
