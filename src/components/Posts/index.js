@@ -8,9 +8,11 @@ import './posts.scss';
 import Post from 'src/components/Posts/Post';
 
 // == Composant
-const Posts = ({ postList }) => (
+const Posts = ({ postList, categoryLabel }) => (
   <main className="main">
-    <h1 className="main__title">dev of thrones</h1>
+    <h1 className="main__title">
+      {(categoryLabel === 'o’clock' || categoryLabel === 'o\'clock') ? 'vue' : categoryLabel}
+    </h1>
 
     <section className="main__article-section">
       {postList.map((post) => (
