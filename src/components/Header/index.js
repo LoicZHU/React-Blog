@@ -40,7 +40,7 @@ const Header = ({ categoryList }) => {
         </ul>
       </nav>
 
-      <Menu isOpen={isOpen} onOpen={toggleIsOpen} right width={'150px'} >
+      <Menu isOpen={isOpen} onOpen={toggleIsOpen} onClose={toggleIsOpen} right width={'150px'} >
         <ul className="header__nav__list">
           {categoryList.map((category) => (
             <li key={category.label}>
