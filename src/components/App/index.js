@@ -93,7 +93,7 @@ const App = () => {
           && (postList.map((post) => (
             <Route
               exact
-              path={post.slug === 'oclock-une-vraie-bonne-ecole' ? '/vue-une-vraie-fausse-bonne-idee' : `${post.slug}`}
+              path={post.slug === 'oclock-une-vraie-bonne-ecole' ? '/vue-une-vraie-fausse-bonne-idee' : `/${post.slug}`}
               key={post.id}
             >
               <Fullpost title={post.title} category={post.category} content={post.content} />
