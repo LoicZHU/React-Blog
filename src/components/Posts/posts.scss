@@ -15,34 +15,46 @@
   &__article-section {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 3rem $postSectionGutter;
-    
-    &__article {
+    margin: 0 0 $postSectionGutter;
+
+    &__link {
       width: 50%;
-      padding: 0 2rem;
-      margin-bottom: $postGutter;
 
-      &__title {
-        font-size: 1.25em;
-        color: $postTitleColor;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-
-      &__category {
-        font-size: 0.65em;
-        color: $categoryTextColor;
-        text-transform: uppercase;
-        background-color: $categoryBackgroundColor;
-        display: inline-block;
-        margin: 0.5rem 0;
-        padding: 0.5rem;
-      }
-
-      &__content {
-        font-size: 0.9em;
-        color: $postTextColor;
+      &__article {
+        padding: 0 2rem;
+        margin-bottom: $postGutter;
+  
+        &__title {
+          font-size: 1.25em;
+          color: $postTitleColor;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+  
+        &__category {
+          font-size: 0.65em;
+          color: $categoryTextColor;
+          text-transform: uppercase;
+          background-color: $categoryBackgroundColor;
+          display: inline-block;
+          margin: 0.5rem 0;
+          padding: 0.5rem;
+        }
+  
+        &__content {
+          font-size: 0.9em;
+          color: $postTextColor;
+        }
       }
     }
   }
+
+  @media (max-width: 375px) {
+    &__article-section {
+  
+      &__link {
+        width: 100%;
+      }
+    }
+  }  
 }

@@ -17,6 +17,7 @@ const Posts = ({ postList }) => (
         <Link
           to={post.slug === 'oclock-une-vraie-bonne-ecole' ? 'vue-une-vraie-fausse-bonne-idee' : post.slug}
           key={post.id}
+          className="main__article-section__link"
         >
           <Post key={post.id} {...post} />
         </Link>
