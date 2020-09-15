@@ -27,6 +27,8 @@ const App = () => {
   const [categoryList, setCategoryList] = useState([]);
   const [fetchingCategoryList, setFetchingCategoryList] = useState(true);
 
+  const loading = (fetchingCategoryList && fetchingPostList);
+
   // fetch
   const fetchPosts = () => {
     axios({
@@ -64,14 +66,16 @@ const App = () => {
 
   return (
     <div className="app">
+      {loading && <div>Chargement...</div>}
+
       {/* header */}
-      {!fetchingCategoryList && <Header categoryList={categoryList} />}
+      {!loading && !fetchingCategoryList && <Header categoryList={categoryList} />}
 
       {/* content */}
       <Switch>
         {/* home page */}
         <Route exact path="/">
-          {!fetchingPostList && <Posts postList={postList} categoryLabel={'Articles'} />}
+          {!loading && !fetchingPostList && <Posts postList={postList} categoryLabel={'Articles'} />}
         </Route>
 
         {/* all categories page */}
