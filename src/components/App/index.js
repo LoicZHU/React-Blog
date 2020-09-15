@@ -81,9 +81,11 @@ const App = () => {
             <Route
               exact
               path={(category.route === '/oclock') ? '/vue' : category.route}
-              key={category.label === ('O’clock' || 'O\'clock') ? 'Vue' : category.label}
+              key={(category.label === 'O’clock' || category.label === 'O\'clock') ? 'Vue' : category.label}
             >
-              <Posts postList={getPostsByCategory(postList, category.label)} categoryLabel={category.label} />
+              <Posts
+                postList={getPostsByCategory(postList, category.label)}
+                categoryLabel={(category.label === 'O’clock' || category.label === 'O\'clock') ? 'Vue' : category.label} />
             </Route>
           )))
         }
