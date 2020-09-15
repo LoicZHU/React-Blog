@@ -40,7 +40,14 @@ const Header = ({ categoryList }) => {
         </ul>
       </nav>
 
-      <Menu isOpen={isOpen} onOpen={toggleIsOpen} onClose={toggleIsOpen} right width={'150px'} >
+      <Menu
+        isOpen={isOpen}
+        onOpen={toggleIsOpen}
+        onClose={toggleIsOpen}
+        right
+        width={'150px'}
+        disableAutoFocus
+      >
         <ul className="header__nav__list">
           {categoryList.map((category) => (
             <li key={category.label}>

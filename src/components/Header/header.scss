@@ -62,6 +62,15 @@
       display: none;
 
       &__list {
+
+        li {
+          margin-right: 1rem;
+
+          &:last-child {
+            margin-right: 1rem;
+          }
+        }
+        
         &__link {
           display: block;
           margin: 10px;
