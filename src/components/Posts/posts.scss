@@ -5,7 +5,8 @@
   &__title {
     margin: $borderGutter 0 $postSectionGutter;
     font-size: 2em;
-    font-weight: bold;
+    font-family: $titleFont;
+    font-weight: $titleFont;
     text-align: center;
     color: $mainTitleColor;
     text-transform: uppercase;
@@ -27,7 +28,8 @@
         &__title {
           font-size: 1.25em;
           color: $postTitleColor;
-          font-weight: bold;
+          font-family: $titleFont;
+          font-weight: $titleFont;
           text-transform: uppercase;
         }
   
